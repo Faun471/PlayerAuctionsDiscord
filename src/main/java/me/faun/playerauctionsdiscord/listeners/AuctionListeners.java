@@ -14,7 +14,6 @@ public class AuctionListeners implements Listener {
 
     @EventHandler
     public void onSellEvent(PlayerAuctionSellEvent event){
-        System.out.println("fired");
         if (!PlayerAuctionsDiscord.getInstance().getConfig().getBoolean("sell-embed.enabled")) {
             return;
         }
@@ -27,7 +26,6 @@ public class AuctionListeners implements Listener {
 
     @EventHandler
     public void onBuyEvent(PlayerAuctionBuyEvent event) {
-        System.out.println("fired");
         if (!PlayerAuctionsDiscord.getInstance().getConfig().getBoolean("buy-embed.enabled")) {
             return;
         }
@@ -40,7 +38,6 @@ public class AuctionListeners implements Listener {
 
     @EventHandler
     public void onBuyEvent(PlayerAuctionRemoveEvent event) {
-        System.out.println("fired");
         if (!PlayerAuctionsDiscord.getInstance().getConfig().getBoolean("remove-embed.enabled")) {
             return;
         }

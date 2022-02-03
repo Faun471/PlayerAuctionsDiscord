@@ -18,16 +18,8 @@ public final class PlayerAuctionsDiscord extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-
         Bukkit.getPluginManager().registerEvents(new AuctionListeners(), this);
-
-
-        PlayerAuctionsAPI.getInstance(playerAuctionsAPI -> {
-            playerAuctionsAPI.getCommandRegistry().addSubCommand(new ReloadCommand("discord"));
-            System.out.println("subcommand registered");
-        });
-
-
+        PlayerAuctionsAPI.getInstance(playerAuctionsAPI -> playerAuctionsAPI.getCommandRegistry().addSubCommand(new ReloadCommand("discord")));
         initConfig();
     }
 
@@ -40,7 +32,4 @@ public final class PlayerAuctionsDiscord extends JavaPlugin {
             saveDefaultConfig();
         }
     }
-
-
-
 }
