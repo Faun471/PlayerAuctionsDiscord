@@ -1,0 +1,13 @@
+name: PlayerAuctionsDiscord
+version: '${version}'
+main: me.faun.playerauctionsdiscord.PlayerAuctionsDiscord
+api-version: 1.16
+depend: [ PlayerAuctions, InteractiveChatDiscordSrvAddon ]
+
+commands:
+  playerauctionsdiscord:
+    aliases: ['pad']
+    description: 'main command of the plugin'
+    permission: 'pad.reload'
+    permission-message: 'You do not have permission to run this command.'
+    usage: '/pad reload'

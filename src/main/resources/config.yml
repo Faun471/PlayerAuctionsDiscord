@@ -1,0 +1,95 @@
+channel: ""
+
+sell-embed:
+  enabled: true
+  author: "%seller% is selling %item_displayname% for $%price%"
+  color: "#4287f5"
+  title: "Auction Information"
+  footer: "Auction ID: %auction_id%"
+  fields:
+    Seller:
+      fieldName: "Seller"
+      fieldValue: "%seller%"
+      inline: true
+    blank:
+      fieldName: ""
+      fieldValue: ""
+      inline: true
+    Item:
+      fieldName: "Item"
+      fieldValue: "%item_displayname%"
+      inline: true
+    Amount:
+      fieldName: "Amount"
+      fieldValue: "%amount%"
+      inline: true
+    blank1:
+      fieldName: ""
+      fieldValue: ""
+      inline: true
+    Price:
+      fieldName: "Price"
+      fieldValue: "$%price%"
+      inline: true
+buy-embed:
+  enabled: true
+  author: "%buyer% bought %item_displayname% for $%price%"
+  color: "#48f542"
+  title: "Auction Information"
+  footer: "Auction ID: %auction_id%"
+  fields:
+    Seller:
+      fieldName: "Seller"
+      fieldValue: "%seller%"
+      inline: true
+    Buyer:
+      fieldName: "Buyer"
+      fieldValue: "%buyer%"
+      inline: true
+    Item:
+      fieldName: "Item"
+      fieldValue: "%item_displayname%"
+      inline: true
+    Amount:
+      fieldName: "Amount"
+      fieldValue: "%amount%"
+      inline: true
+    blank1:
+      fieldName: ""
+      fieldValue: ""
+      inline: true
+    Price:
+      fieldName: "Price"
+      fieldValue: "$%price%"
+      inline: true
+remove-embed:
+  enabled: true
+  author: "%item_displayname% was removed from the Auction!"
+  color: "#bf2a2a"
+  title: "Auction Information"
+  footer: "Auction ID: %auction_id%"
+  fields:
+    Seller:
+      fieldName: "Seller"
+      fieldValue: "%seller%"
+      inline: true
+    blank:
+      fieldName: ""
+      fieldValue: ""
+      inline: true
+    Item:
+      fieldName: "Item"
+      fieldValue: "%item_displayname%"
+      inline: true
+    Amount:
+      fieldName: "Amount"
+      fieldValue: "%amount%"
+      inline: true
+    blank1:
+      fieldName: ""
+      fieldValue: ""
+      inline: true
+    Price:
+      fieldName: "Price"
+      fieldValue: "$%price%"
+      inline: true
