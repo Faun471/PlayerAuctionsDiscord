@@ -16,8 +16,9 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
-import java.awt.Color;
-import java.io.File;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
@@ -93,14 +94,24 @@ public class EmbedUtils  {
      * @param offlinePlayer The OfflinePlayer.
      * @return a png image file of the specified item.
      */
-    public static File getImageLink(ItemStack itemStack, OfflinePlayer offlinePlayer) {
-        File image = new File("file.png");
+    public static byte[] getImageLink(ItemStack itemStack, OfflinePlayer offlinePlayer) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+
         try {
-            ImageIO.write(ImageGeneration.getItemStackImage(itemStack, InteractiveChatAPI.getOfflineICPlayer(offlinePlayer.getUniqueId())), "png", image);
+            BufferedImage image = ImageGeneration.getItemStackImage(itemStack, InteractiveChatAPI.getOfflineICPlayer(offlinePlayer.getUniqueId()));
+            Image tmp = image.getScaledInstance(64, 72, Image.SCALE_SMOOTH);
+            BufferedImage resizedImage = new BufferedImage(64, 72, BufferedImage.TYPE_INT_ARGB);
+
+            Graphics2D graphics = resizedImage.createGraphics();
+            graphics.drawImage(tmp, 0, 0, null);
+            graphics.dispose();
+
+            ImageIO.write(resizedImage, "png", byteArrayOutputStream);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return image;
+        return byteArrayOutputStream.toByteArray();
     }
 }

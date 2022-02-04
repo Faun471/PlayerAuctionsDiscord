@@ -21,7 +21,7 @@ public class AuctionListeners implements Listener {
         DiscordUtil.getTextChannelById(PlayerAuctionsDiscord.getInstance().getConfig().getString("channel"))
                 .sendMessageEmbeds(EmbedUtils.getEmbedBuilder(
                         EmbedType.SELL, event.getPlayerAuction(), null
-                )).addFile(EmbedUtils.getImageLink(event.getPlayerAuction().getItem(), event.getSeller())).queue();
+                )).addFile(EmbedUtils.getImageLink(event.getPlayerAuction().getItem(), event.getSeller()), "file.png").queue();
     }
 
     @EventHandler
@@ -33,7 +33,7 @@ public class AuctionListeners implements Listener {
         DiscordUtil.getTextChannelById(PlayerAuctionsDiscord.getInstance().getConfig().getString("channel"))
                 .sendMessageEmbeds(EmbedUtils.getEmbedBuilder(
                         EmbedType.BUY, event.getPlayerAuction(), event.getBuyer()
-                )).addFile(EmbedUtils.getImageLink(event.getItemStack(), event.getBuyer())).queue();
+                )).addFile(EmbedUtils.getImageLink(event.getItemStack(), event.getBuyer()), "file.png").queue();
     }
 
     @EventHandler
@@ -49,6 +49,6 @@ public class AuctionListeners implements Listener {
         DiscordUtil.getTextChannelById(PlayerAuctionsDiscord.getInstance().getConfig().getString("channel"))
                 .sendMessageEmbeds(EmbedUtils.getEmbedBuilder(
                         EmbedType.REMOVE, event.getPlayerAuction(), null
-                )).addFile(EmbedUtils.getImageLink(event.getPlayerAuction().getItem(), event.getPlayerAuction().getAuctionPlayer().getOfflinePlayer())).queue();
+                )).addFile(EmbedUtils.getImageLink(event.getPlayerAuction().getItem(), event.getPlayerAuction().getAuctionPlayer().getOfflinePlayer()), "file.png").queue();
     }
 }
