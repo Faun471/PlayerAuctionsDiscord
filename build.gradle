@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'me.faun'
-version = '2.0'
+version = '2.1'
 
 repositories {
     mavenCentral()
@@ -47,7 +47,7 @@ dependencies {
     compileOnly 'com.loohp:InteractiveChat:4.1.2.2'
     compileOnly 'com.discordsrv:discordsrv:1.24.0'
     compileOnly 'com.olziedev:playerauctions-api:1.13.0-pre4'
-    compileOnly "net.kyori:adventure-platform-bungeecord:4.0.0"
+    compileOnly 'net.kyori:adventure-platform-bukkit:4.0.0'
 }
 
 def targetJavaVersion = 16
@@ -73,8 +73,4 @@ processResources {
     filesMatching('plugin.yml') {
         expand props
     }
-}
-
-shadowJar {
-    archiveClassifier = null
 }
