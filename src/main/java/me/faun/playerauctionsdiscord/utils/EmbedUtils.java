@@ -6,6 +6,7 @@ import com.olziedev.playerauctions.api.auction.Auction;
 import github.scarsz.discordsrv.dependencies.jda.api.EmbedBuilder;
 import github.scarsz.discordsrv.dependencies.jda.api.entities.MessageEmbed;
 import me.faun.playerauctionsdiscord.PlayerAuctionsDiscord;
+import net.kyori.adventure.text.TextComponent;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.Configuration;
@@ -82,7 +83,7 @@ public class EmbedUtils  {
         return string
                 .replace("%seller%", seller.getName() != null ? seller.getName() : "seller")
                 .replace("%buyer%", buyer != null ? buyer.getName() : "null")
-                .replace("%item_displayname%", auction.getItem().getItemMeta().hasDisplayName() ? ChatColor.stripColor(auction.getItem().getItemMeta().getDisplayName()) : "%item%")
+                .replace("%item_displayname%", auction.getItem().getItemMeta().hasDisplayName() ? ChatColor.stripColor(((TextComponent) auction.getItem().getItemMeta().displayName().compact()).content()) : "%item%")
                 .replace("%item%", auction.getItem().getI18NDisplayName())
                 .replace("%amount%", String.valueOf(auction.getItem().getAmount()))
                 .replace("%price%", String.valueOf(auction.getPrice()))
@@ -92,11 +93,10 @@ public class EmbedUtils  {
     /**
      * @param itemStack The item that will be generated into an image.
      * @param offlinePlayer The OfflinePlayer.
-     * @return a png image file of the specified item.
+     * @return a byte array of the specified item.
      */
     public static byte[] getImageLink(ItemStack itemStack, OfflinePlayer offlinePlayer) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-
 
         try {
             BufferedImage image = ImageGeneration.getItemStackImage(itemStack, InteractiveChatAPI.getOfflineICPlayer(offlinePlayer.getUniqueId()));
